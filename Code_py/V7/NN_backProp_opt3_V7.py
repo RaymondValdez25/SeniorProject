@@ -414,8 +414,8 @@ class Activation_Softmax_Loss_CategoricalCrossentropy:
         self.dinputs = self.dinputs / samples
 
 # Load dataset and One-Hot encoded labels
-X = np.load('C:\\Class\\Code_py\\V7\\x_V7.npy') # Data
-y = np.load('C:\\Class\\Code_py\\V7\\y_V7.npy') # One-hot
+X = np.load('x_V7.npy') # Data
+y = np.load('y_V7.npy') # One-hot
 
 # Create Dense layer with 2 input features and 64 output values
 dense1 = Layer_Dense(5, 64)

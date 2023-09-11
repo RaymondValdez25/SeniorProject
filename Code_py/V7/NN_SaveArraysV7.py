@@ -954,5 +954,5 @@ y = np.array([[0,0,1],
 [1,0,0],
 [1,0,0]])
 
-np.save('C:\\Class\\Code_py\\V7\\x_V7.npy', X)
-np.save('C:\\Class\\Code_py\\V7\\y_V7.npy', y)
+np.save('x_V7.npy', X)
+np.save('y_V7.npy', y)
