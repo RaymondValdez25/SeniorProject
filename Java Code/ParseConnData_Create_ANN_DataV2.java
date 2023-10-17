@@ -8,7 +8,7 @@ public class ParseConnData_Create_ANN_DataV2 {
 
    // Update the following when running in a different environment.
    public static final String LINUX_PATH    = "/mnt/c/Class/";
-   public static final String WINDOWS_PATH  = "c:\\Class\\";
+   public static final String WINDOWS_PATH  = "..";
    public static final String DATA_FOLDER   = "Output";
    public static final String OUTPUT_FOLDER = "Output";
    public static final String INPUT_FILE    = "FinalGraph_V4.csv";

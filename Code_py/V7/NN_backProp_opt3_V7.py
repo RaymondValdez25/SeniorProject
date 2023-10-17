@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
 
 # Copyright © 2020 Sentdex, Kinsley Enterprises Inc., https://nnfs.io
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -417,6 +419,16 @@ class Activation_Softmax_Loss_CategoricalCrossentropy:
 X = np.load('x_V7.npy') # Data
 y = np.load('y_V7.npy') # One-hot
 
+X_train = []
+X_test = []
+y_train = []
+y_test = []
+
+X_train, X_test, y_train, y_test = train_test_split(X,y ,
+                                   random_state=104, 
+                                   test_size=0.10, 
+                                   shuffle=True)
+
 # Create Dense layer with 2 input features and 64 output values
 dense1 = Layer_Dense(5, 64)
 
@@ -439,7 +451,7 @@ print('epoch,accuracy,loss,learning_rate')
 for epoch in range(3001):
 
     # Perform a forward pass of our training data through this layer
-    dense1.forward(X)
+    dense1.forward(X_train)
 
     # Perform a forward pass through activation function
     # takes the output of first dense layer here
@@ -451,14 +463,14 @@ for epoch in range(3001):
 
     # Perform a forward pass through the activation/loss function
     # takes the output of second dense layer here and returns loss
-    loss = loss_activation.forward(dense2.output, y)
+    loss = loss_activation.forward(dense2.output, y_train)
 
     # Calculate accuracy from output of activation2 and targets
     # calculate values along first axis
     predictions = np.argmax(loss_activation.output, axis=1)
-    if len(y.shape) == 2:
-        y = np.argmax(y, axis=1)
-    accuracy = np.mean(predictions==y)
+    if len(y_train.shape) == 2:
+        y_train = np.argmax(y_train, axis=1)
+    accuracy = np.mean(predictions==y_train)
 
     if not epoch % 5:
         ##print(f'epoch: {epoch}, ' +
@@ -468,7 +480,7 @@ for epoch in range(3001):
         print(f'{epoch},{accuracy:.3f},{loss:.3f},{optimizer.current_learning_rate}')
 
     # Backward pass
-    loss_activation.backward(loss_activation.output, y)
+    loss_activation.backward(loss_activation.output, y_train)
     dense2.backward(loss_activation.dinputs)
     activation1.backward(dense2.dinputs)
     dense1.backward(activation1.dinputs)
@@ -478,3 +490,22 @@ for epoch in range(3001):
     optimizer.update_params(dense1)
     optimizer.update_params(dense2)
     optimizer.post_update_params()
+    
+#Validation using X_test
+dense1.forward(X_test)
+# Perform a forward pass through activation function
+# takes the output of first dense layer here
+activation1.forward(dense1.output)
+# Perform a forward pass through second Dense layer
+# takes outputs of activation function of first layer as inputs
+dense2.forward(activation1.output)
+# Perform a forward pass through the activation/loss function
+# takes the output of second dense layer here and returns loss
+loss = loss_activation.forward(dense2.output, y_test)
+# Calculate accuracy from output of activation2 and targets
+# calculate values along first axis
+predictions = np.argmax(loss_activation.output, axis=1)
+if len(y_test.shape) == 2:
+    y_test = np.argmax(y_test, axis=1)
+accuracy = np.mean(predictions == y_test)
+print(f'validation, acc: {accuracy:.3f}, loss: {loss:.3f}')
