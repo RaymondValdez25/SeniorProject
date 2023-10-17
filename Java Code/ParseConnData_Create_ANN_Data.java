@@ -11,6 +11,7 @@ public class ParseConnData_Create_ANN_Data {
    public static final String WINDOWS_PATH  = "c:\\Class\\";
    public static final String DATA_FOLDER   = "Output";
    public static final String OUTPUT_FOLDER = "Output";
+   
    public static final String INPUT_FILE    = "FinalGraph_V4.csv";
 
    public static final String ONE_HOT_1     = "1,0,0";

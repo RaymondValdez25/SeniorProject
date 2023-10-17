@@ -7,7 +7,7 @@ public class GraphCycle {
    private List<List<Integer>> adj;
  
    public GraphCycle(int V) {
-      this.V   = V;
+      this.V  = V;
       this.adj = new ArrayList<>(V);
          
       for (int i = 0; i < V; i++)
