@@ -3,3 +3,6 @@
 
 # Ignore specific files
 full_dataset.csv
+FinalGraph_V4.csv
+FinalEdges_All.csv
+SourceToDests_V3.csv
