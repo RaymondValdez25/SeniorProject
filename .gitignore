@@ -1,0 +1,6 @@
+# Ignore all Java class files
+*.class
+
+# Ignore specific files
+full_dataset.csv
+$steps to recreate results for ANN NEW DATA.docx
