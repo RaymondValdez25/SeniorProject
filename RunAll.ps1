@@ -1,5 +1,14 @@
-cd 'C:\SeniorProject\Java Code'
+#Enter Java Code Folder
+cd 'Java Code'
 ./PreprocessJava
-cd C:\SeniorProject\Code_py\V7
+
+#Exit folder
+cd ..
+
+#Enter Python Code Folder
+cd 'Code_py\V7'
+
 ./PreprocessPython
+
+#Exit folder
 cd ../..
