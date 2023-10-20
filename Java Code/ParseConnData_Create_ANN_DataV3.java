@@ -60,10 +60,10 @@ public class ParseConnData_Create_ANN_DataV3 {
       file = new File(dataPath + INPUT_FILE);
       
       File outFile1;
-      outFile1 = new File(outputPath + "Output_NN_In_V7.csv");
+      outFile1 = new File(outputPath + "Output_NN_In_V8.csv");
       
       File outFile2;
-      outFile2 = new File(outputPath + "Output_OneHot_V7.csv");
+      outFile2 = new File(outputPath + "Output_OneHot_V8.csv");
       
       // rootIP    - 0
       // srcIP     - 1

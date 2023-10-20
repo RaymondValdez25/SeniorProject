@@ -19,5 +19,5 @@ javac $javaFile
 java ParseConnData_Create_ANN_DataV3 windows
 
 #Copy the Output_NN_In_V7 and Output_OneHot_V7 into python V7 folder
-cp ../Output/Output_NN_In_V7.csv ../Code_py/V7
-cp ../Output/Output_OneHot_V7.csv ../Code_py/V7
+cp ../Output/Output_NN_In_V8.csv ../Code_py/V7
+cp ../Output/Output_OneHot_V8.csv ../Code_py/V7

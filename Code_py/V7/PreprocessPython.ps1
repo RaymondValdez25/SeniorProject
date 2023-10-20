@@ -4,14 +4,14 @@ python -c @"
 import numpy as np
 
 # Load the CSV file
-X = np.genfromtxt('Output_NN_In_V7.csv', delimiter=',')
-y = np.genfromtxt('Output_OneHot_V7.csv', delimiter=',')
+X = np.genfromtxt('Output_NN_In_V8.csv', delimiter=',')
+y = np.genfromtxt('Output_OneHot_V8.csv', delimiter=',')
 
-np.save('x_V7.npy', X)
-np.save('y_V7.npy', y)
+np.save('x_V8.npy', X)
+np.save('y_V8.npy', y)
 
 # Print the resulting NumPy array
 print(X)
 "@
 
-python NN_backProp_opt3_V7.py
+python NN_backProp_opt3_V8.py
