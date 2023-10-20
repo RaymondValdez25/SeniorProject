@@ -8,5 +8,7 @@ FinalEdges_All.csv
 SourceToDests_V3.csv
 Output_NN_In_V7.csv
 Output_OneHot_V7.csv
+x_V7.npy
+y_V7.npy
 ~$eps to recreate results for ANN.docx
 ~WRL0003.tmp
