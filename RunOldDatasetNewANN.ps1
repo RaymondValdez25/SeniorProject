@@ -8,7 +8,7 @@ cd ..
 #Enter Python Code Folder
 cd 'Code_py\V7'
 
-./PreprocessPythonOld
+./PreprocessPythonNew
 
 #Exit folder
 cd ../..
