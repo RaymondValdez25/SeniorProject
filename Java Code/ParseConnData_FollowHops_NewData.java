@@ -47,9 +47,8 @@ public class ParseConnData_FollowHops_NewData {
    public static final String WINDOWS_PATH  = "..";
    public static final String DATA_FOLDER   = "Data";
    public static final String OUTPUT_FOLDER = "Output";
-   public static final String FULL_DATASET  = "full_dataset.csv";
+   public static final String FULL_DATASET  = "CombinedNewData.csv";
    public static final String TRUNC_DATASET = "truncated_dataset.csv";
-   public static final String NEW_DATASET = "TestCSV/Parquet Viewer - View and Filter Parquet Files Online.csv";
 
    // Store/accumulate various attributes from the input data file.
    private static LinkedHashMap<String,String>  srcMap          = new LinkedHashMap<>();
@@ -68,8 +67,6 @@ public class ParseConnData_FollowHops_NewData {
    }
 
    public static void main(String[] args) {
-	   
-	   System.out.println("processing new data");
 
       // Various items to capture data for process timings.
       long fileProcTimeStart, fileProcTimeEnd;
@@ -140,14 +137,14 @@ public class ParseConnData_FollowHops_NewData {
          outputPath = LINUX_PATH + "/" + OUTPUT_FOLDER + "/";
       }
       
-      File file = new File(dataPath + NEW_DATASET);
-      // if(fullDataset) {
-         // file = new File(dataPath + FULL_DATASET);
-         // System.out.println("Using full data.");
-      // } else {
-         // file = new File(dataPath + TRUNC_DATASET);
-         // System.out.println("Using truncated data.");
-      // }
+      File file;
+      if(fullDataset) {
+         file = new File(dataPath + FULL_DATASET);
+         System.out.println("Using full data.");
+      } else {
+         file = new File(dataPath + TRUNC_DATASET);
+         System.out.println("Using truncated data.");
+      }
       
       System.out.println("==========================================================");      
       fileProcTimeStart = System.currentTimeMillis();
@@ -165,21 +162,21 @@ public class ParseConnData_FollowHops_NewData {
             Double connBytes = 0.0;
             
             try {
-               if(!strArr[8].equals(""))
+               if(!strArr[8].equals("")) //duration
                   dur = Double.valueOf(strArr[8]);
-               if(!strArr[9].equals(""))
+               if(!strArr[9].equals("")) //original bytes
                   connBytes = Double.valueOf(strArr[9]);
             } catch (Exception e) { 
                //System.out.println(strArr[6]);
             }
             
-            String tactic    = strArr[23];
-            String src       = strArr[2];    // src_ip
-            String src_port  = strArr[3];    // src_port
-            String dst       = strArr[4];     // dst_ip
-            String dst_port  = strArr[5];    // dst_port
-            String bytes     = strArr[9];    // bytes
-            String date_time = strArr[21];
+            String tactic    = strArr[23];	 // label_tactic
+            String src       = strArr[2];    // src_ip_zeek
+            String src_port  = strArr[3];    // src_port_zeek
+            String dst       = strArr[4];    // dest_ip_zeek
+            String dst_port  = strArr[5];    // dest_port_zeek
+            String bytes     = strArr[9];    // orig_bytes
+            String date_time = strArr[21];	 // datetime
             
             if(tacticToFind.equals("") || (invertTactic && !tacticToFind.equalsIgnoreCase(tactic))
                                        || (tacticToFind.equalsIgnoreCase(tactic))                ) {
