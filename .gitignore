@@ -14,5 +14,6 @@ x_V8.npy
 y_V8.npy
 Output_NN_In_V8.csv
 Output_OneHot_V8.csv
+CombinedNewData.csv
 ~$eps to recreate results for ANN.docx
 ~WRL0003.tmp

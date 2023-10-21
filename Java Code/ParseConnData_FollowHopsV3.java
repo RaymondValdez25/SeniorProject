@@ -160,21 +160,21 @@ public class ParseConnData_FollowHopsV3 {
             Double connBytes = 0.0;
             
             try {
-               if(!strArr[6].equals(""))
-                  dur = Double.valueOf(strArr[6]);
-               if(!strArr[13].equals(""))
+               if(!strArr[6].equals("")) //duration
+                  dur = Double.valueOf(strArr[6]); 
+               if(!strArr[13].equals("")) //orig_bytes
                   connBytes = Double.valueOf(strArr[13]);
             } catch (Exception e) { 
                //System.out.println(strArr[6]);
             }
             
-            String tactic    = strArr[22];
-            String src       = strArr[21];    // src_ip
-            String src_port  = strArr[19];    // src_port
-            String dst       = strArr[8];     // dst_ip
-            String dst_port  = strArr[12];    // dst_port
-            String bytes     = strArr[13];    // bytes
-            String date_time = strArr[15];
+            String tactic    = strArr[22]; 	  // label_tactic
+            String src       = strArr[21];    // src_ip_zeek
+            String src_port  = strArr[19];    // src_port_zeek
+            String dst       = strArr[8];     // dest_ip_zeek
+            String dst_port  = strArr[12];    // dest_port_zeek
+            String bytes     = strArr[13];    // orig_bytes
+            String date_time = strArr[15];	  // datetime
             
             if(tacticToFind.equals("") || (invertTactic && !tacticToFind.equalsIgnoreCase(tactic))
                                        || (tacticToFind.equalsIgnoreCase(tactic))                ) {
