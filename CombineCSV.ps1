@@ -1,8 +1,8 @@
 # Define the path to the folder containing the CSV files
-$sourceFolder = "C:\SeniorProject\Data\SeparatedCSV"
+$sourceFolder = "Data\SeparatedCSV"
 
 # Define the output file path and name
-$outputFilePath = "C:\SeniorProject\Data\CombinedNewData.csv"
+$outputFilePath = "Data\CombinedNewData.csv"
 
 # Get a list of all CSV files in the source folder
 $csvFiles = Get-ChildItem -Path $sourceFolder -Filter *.csv
