@@ -165,8 +165,8 @@ public class ParseConnData_FollowHopsV3 {
                if(!strArr[13].equals("")) //orig_bytes
                   connBytes = Double.valueOf(strArr[13]);
             } catch (Exception e) { 
-               System.out.println(strArr[6]);
-			   System.out.println(e);
+               //System.out.println(strArr[6]);
+			   //System.out.println(e);
             }
             
             String tactic    = strArr[22]; 	  // label_tactic
@@ -238,8 +238,8 @@ public class ParseConnData_FollowHopsV3 {
          System.out.println("Records processed: " + recCount);
             
       } catch (Exception e) { 
-         e.printStackTrace(); 
-         System.out.println(e);
+         //e.printStackTrace(); 
+         //System.out.println(e);
          return; 
       }
 
@@ -275,8 +275,8 @@ public class ParseConnData_FollowHopsV3 {
          }
          bufWriter.close();
       } catch (Exception e) { 
-         e.printStackTrace(); 
-         System.out.println(e);
+         //e.printStackTrace(); 
+         //System.out.println(e);
          return; 
       }
 
@@ -358,8 +358,8 @@ public class ParseConnData_FollowHopsV3 {
          }
          
       } catch (Exception e) { 
-         e.printStackTrace(); 
-         System.out.println(e);
+         //e.printStackTrace(); 
+         //System.out.println(e);
          return; 
       }
    
@@ -453,8 +453,8 @@ public class ParseConnData_FollowHopsV3 {
          bufWriter.close();
          
       } catch (Exception e) { 
-         e.printStackTrace(); 
-         System.out.println(e);
+         //e.printStackTrace(); 
+         //System.out.println(e);
          return; 
       }
 

@@ -110,10 +110,12 @@ public class ParseConnData_FollowHops_NewData_Binary {
             } else if(param.equalsIgnoreCase("Reconnaissance.csv") || 
 					  param.equalsIgnoreCase("Discovery.csv") ||
 					  param.equalsIgnoreCase("PrivilegeEscalation.csv") ||
+					  param.equalsIgnoreCase("PrivilegeEscalationTrunc.csv") ||
 					  param.equalsIgnoreCase("ResourceDevelopment.csv") ||
 					  param.equalsIgnoreCase("ResourceDevelopmentTruncated.csv") ||
 					  param.equalsIgnoreCase("ResourceDevelopmentTruncated1.csv") ||
 					  param.equalsIgnoreCase("ResourceDevelopmentTruncated2.csv") ||
+					  param.equalsIgnoreCase("ResourceDevelopment3000None.csv") ||
 					  param.equalsIgnoreCase("DefenseEvasion.csv")){
 					  FULL_DATASET = param;
 			}
