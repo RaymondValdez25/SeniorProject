@@ -114,8 +114,8 @@ public class ParseConnData_Create_ANN_DataV3 {
          
          bufReader.close();
       } catch (Exception e) { 
-         e.printStackTrace(); 
-         System.out.println(e);
+         //e.printStackTrace(); 
+         //System.out.println(e);
          return; 
       }
       

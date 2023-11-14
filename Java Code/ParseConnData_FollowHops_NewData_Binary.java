@@ -2,32 +2,34 @@ import java.io.*;
 import java.util.*; 
  
 /*
-0:resp_pkts
-1:service
-2:orig_ip_bytes
-3:local_resp
-4:missed_bytes
-5:proto
-6:duration
-7:conn_state
-8:dest_ip_zeek
-9:orig_pkts
-10:community_id
-11:resp_ip_bytes
-12:dest_port_zeek
-13:orig_bytes
-14:local_orig
-15:datetime
-16:history
-17:resp_bytes
-18:uid
-19:src_port_zeek
-20:ts
-21:src_ip_zeek
-22:label_tactic
+0:ts
+1:uid
+2:src_ip_zeek
+3:src_port_zeek
+4:dest_ip_zeek
+5:dest_port_zeek
+6:proto
+7:service
+8:duration
+9:orig_bytes
+10:resp_bytes
+11:conn_state
+12:local_orig
+13:local_resp
+14:missed_bytes
+15:history
+16:orig_pkts
+17:orig_ip_bytes
+18:resp_pkts
+19:resp_ip_bytes
+20:community_id
+21:datetime
+22:label_technique
+23:label_tactic
+24:label_binary
 */
 
-public class ParseConnData_FollowHopsV3 {
+public class ParseConnData_FollowHops_NewData_Binary {
 
    // Parameters when running:
    // "trunc"   Indicates input should be the file listed in TRUNC_DATASET
@@ -45,7 +47,7 @@ public class ParseConnData_FollowHopsV3 {
    public static final String WINDOWS_PATH  = "..";
    public static final String DATA_FOLDER   = "Data";
    public static final String OUTPUT_FOLDER = "Output";
-   public static final String FULL_DATASET  = "full_dataset.csv";
+   public static String FULL_DATASET;
    public static final String TRUNC_DATASET = "truncated_dataset.csv";
 
    // Store/accumulate various attributes from the input data file.
@@ -105,7 +107,18 @@ public class ParseConnData_FollowHopsV3 {
             } else if (param.equalsIgnoreCase("windows")) {
                platformWindows = true;
                System.out.println("Platform = Windows");
-            }
+            } else if(param.equalsIgnoreCase("Reconnaissance.csv") || 
+					  param.equalsIgnoreCase("Discovery.csv") ||
+					  param.equalsIgnoreCase("PrivilegeEscalation.csv") ||
+					  param.equalsIgnoreCase("PrivilegeEscalationTrunc.csv") ||
+					  param.equalsIgnoreCase("ResourceDevelopment.csv") ||
+					  param.equalsIgnoreCase("ResourceDevelopmentTruncated.csv") ||
+					  param.equalsIgnoreCase("ResourceDevelopmentTruncated1.csv") ||
+					  param.equalsIgnoreCase("ResourceDevelopmentTruncated2.csv") ||
+					  param.equalsIgnoreCase("ResourceDevelopment3000None.csv") ||
+					  param.equalsIgnoreCase("DefenseEvasion.csv")){
+					  FULL_DATASET = param;
+			}
             else
                tacticToFind = param;
          }
@@ -160,22 +173,23 @@ public class ParseConnData_FollowHopsV3 {
             Double connBytes = 0.0;
             
             try {
-               if(!strArr[6].equals("")) //duration
-                  dur = Double.valueOf(strArr[6]); 
-               if(!strArr[13].equals("")) //orig_bytes
-                  connBytes = Double.valueOf(strArr[13]);
+               if(!strArr[8].equals("")) //duration
+                  dur = Double.valueOf(strArr[8]);
+               if(!strArr[9].equals("")) //original bytes
+                  connBytes = Double.valueOf(strArr[9]);
             } catch (Exception e) { 
                //System.out.println(strArr[6]);
-			   //System.out.println(e);
             }
+			
+			//System.out.println("uid" + strArr[1] + "tactic" + strArr[23] );
             
-            String tactic    = strArr[22]; 	  // label_tactic
-            String src       = strArr[21];    // src_ip_zeek
-            String src_port  = strArr[19];    // src_port_zeek
-            String dst       = strArr[8];     // dest_ip_zeek
-            String dst_port  = strArr[12];    // dest_port_zeek
-            String bytes     = strArr[13];    // orig_bytes
-            String date_time = strArr[15];	  // datetime
+            String tactic    = strArr[23];	 // label_tactic
+            String src       = strArr[2];    // src_ip_zeek
+            String src_port  = strArr[3];    // src_port_zeek
+            String dst       = strArr[4];    // dest_ip_zeek
+            String dst_port  = strArr[5];    // dest_port_zeek
+            String bytes     = strArr[9];    // orig_bytes
+            String date_time = strArr[21];	 // datetime
             
             if(tacticToFind.equals("") || (invertTactic && !tacticToFind.equalsIgnoreCase(tactic))
                                        || (tacticToFind.equalsIgnoreCase(tactic))                ) {
@@ -238,8 +252,8 @@ public class ParseConnData_FollowHopsV3 {
          System.out.println("Records processed: " + recCount);
             
       } catch (Exception e) { 
-         //e.printStackTrace(); 
-         //System.out.println(e);
+         e.printStackTrace(); 
+         System.out.println(e);
          return; 
       }
 
@@ -275,8 +289,8 @@ public class ParseConnData_FollowHopsV3 {
          }
          bufWriter.close();
       } catch (Exception e) { 
-         //e.printStackTrace(); 
-         //System.out.println(e);
+         e.printStackTrace(); 
+         System.out.println(e);
          return; 
       }
 
@@ -358,8 +372,8 @@ public class ParseConnData_FollowHopsV3 {
          }
          
       } catch (Exception e) { 
-         //e.printStackTrace(); 
-         //System.out.println(e);
+         e.printStackTrace(); 
+         System.out.println(e);
          return; 
       }
    
@@ -453,8 +467,8 @@ public class ParseConnData_FollowHopsV3 {
          bufWriter.close();
          
       } catch (Exception e) { 
-         //e.printStackTrace(); 
-         //System.out.println(e);
+         e.printStackTrace(); 
+         System.out.println(e);
          return; 
       }
 

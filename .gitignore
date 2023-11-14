@@ -19,3 +19,10 @@ CombinedNewData.csv
 ~WRL0003.tmp
 CombinedNewData1.csv
 CombinedNewData2.csv
+Reconnaissance.csv
+ResourceDevelopment.csv
+ResourceDevelopmentTruncated.csv
+ResourceDevelopmentTruncated1.csv
+DefenseEvasion.csv
+Discovery.csv
+PrivilegeEscalation.csv

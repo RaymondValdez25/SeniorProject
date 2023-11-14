@@ -1,7 +1,7 @@
 import java.io.*; 
 import java.util.*; 
 
-public class ParseConnData_Create_ANN_DataV2 {
+public class ParseConnData_Create_ANN_NewData_Binary {
 
    // Parameters when running:
    // "windows" Indicates program will run in windows environment, change path
@@ -11,11 +11,11 @@ public class ParseConnData_Create_ANN_DataV2 {
    public static final String WINDOWS_PATH  = "..";
    public static final String DATA_FOLDER   = "Output";
    public static final String OUTPUT_FOLDER = "Output";
-   public static final String INPUT_FILE    = "FinalGraph_NewData.csv";
+   public static final String INPUT_FILE    = "FinalGraph_V4.csv";
 
-   public static final String ONE_HOT_1     = "1,0,0";
-   public static final String ONE_HOT_2     = "0,1,0";
-   public static final String ONE_HOT_3     = "0,0,1";
+   public static final String ONE_HOT_1     = "1"; //none
+   public static final String ONE_HOT_2     = "0";
+
 
    private static LinkedHashMap<String,Integer> rootCountMap  = new LinkedHashMap<>();
    private static LinkedHashMap<String,Integer> portCountMinMap  = new LinkedHashMap<>();
@@ -60,10 +60,10 @@ public class ParseConnData_Create_ANN_DataV2 {
       file = new File(dataPath + INPUT_FILE);
       
       File outFile1;
-      outFile1 = new File(outputPath + "Output_NN_In_NewData.csv");
+      outFile1 = new File(outputPath + "Output_NN_In_V8.csv");
       
       File outFile2;
-      outFile2 = new File(outputPath + "Output_OneHot_NewData.csv");
+      outFile2 = new File(outputPath + "Output_OneHot_V8.csv");
       
       // rootIP    - 0
       // srcIP     - 1
@@ -163,13 +163,10 @@ public class ParseConnData_Create_ANN_DataV2 {
                if(tactic.equalsIgnoreCase("none")) {
                   useRecord = true;
                   oneHot = ONE_HOT_1;
-               } else if(tactic.equalsIgnoreCase("Reconnaissance")) {
-                  useRecord = true;
+               } else{
+				  useRecord = true;
                   oneHot = ONE_HOT_2;
-               } else if(tactic.equalsIgnoreCase("Discovery")) {
-                  useRecord = true;
-                  oneHot = ONE_HOT_3;
-               }
+			   }
                
                if(useRecord) {
                   usedCount++;
@@ -194,11 +191,11 @@ public class ParseConnData_Create_ANN_DataV2 {
                                    String.format("%.20f", getNormalizedPortCount(portCount));
 
                   if(usedCount==1) {
-                     bufWriter1.write("[[" + lineOut + "]");
-                     bufWriter2.write("[[" + oneHot + "]");
+					 bufWriter1.write(lineOut);
+                     bufWriter2.write(oneHot);
                   } else {
-                     bufWriter1.write(",\n[" + lineOut + "]");
-                     bufWriter2.write(",\n[" + oneHot + "]");
+					 bufWriter1.write("\n" + lineOut);
+                     bufWriter2.write("\n" + oneHot);
                   }
                   
                   
@@ -211,8 +208,8 @@ public class ParseConnData_Create_ANN_DataV2 {
          
          } // end while not EOF
          
-         bufWriter1.write("]\n");
-         bufWriter2.write("]\n");
+         //bufWriter1.write("]\n");
+         //bufWriter2.write("]\n");
          
          bufWriter1.close();
          bufWriter2.close();
