@@ -5,7 +5,7 @@ $javaFile = "ParseConnData_FollowHopsV3.java"
 javac $javaFile
 
 # Run the Java program with the "windows" parameter
-java ParseConnData_FollowHopsV3 windows
+java ParseConnData_FollowHopsV3 windows trunc
 
 #Copy FinalGraph_V4.csv from Output into Data
 cp ../Output/FinalGraph_V4.csv ../Data/
