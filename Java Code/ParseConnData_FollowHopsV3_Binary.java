@@ -47,7 +47,6 @@ public class ParseConnData_FollowHopsV3_Binary {
    public static final String OUTPUT_FOLDER = "Output";
    public static  String FULL_DATASET  = "full_dataset.csv";
    public static  String TRUNC_DATASET = "truncated_dataset.csv";
-   //public static final String TRUNC_DATASET = "truncated_dataset_discovery.csv";
 
    // Store/accumulate various attributes from the input data file.
    private static LinkedHashMap<String,String>  srcMap          = new LinkedHashMap<>();
