@@ -1,6 +1,9 @@
+#dataset type
+$datasetType = "old"
+
 #Enter Java Code Folder
 cd 'Java Code'
-./PreprocessJavaOld
+./PreprocessJava $datasetType
 
 #Exit folder
 cd ..

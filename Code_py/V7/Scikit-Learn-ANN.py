@@ -26,6 +26,8 @@ start_time_train = time.time()
 ann.fit(X_train, y_train, batch_size = 32, epochs = 100, verbose=0)
 end_time_train = time.time()
 
+total_training_time = f"{end_time_train - start_time_train:.2f}"
+
 #y_pred = ann.predict(X_test)
 #y_pred = np.argmax(y_pred, axis=1)
 
@@ -55,18 +57,18 @@ print('======= recall ========\n', recall)
 precision = precision_score(y_test, y_pred_rounded, average='weighted', zero_division=1.0)
 print('=======precision=======\n', precision)
 
-# #F-measure False Positive Rate
-# f_measure = f1_score(y_test, y_pred_rounded, average='None')
-# print('==========F measure======\n',f_measure)
+#F-measure False Positive Rate
+f_measure = f1_score(y_test, y_pred_rounded, average='weighted')
+print('==========F measure======\n',f_measure)
 
-# #AUC
-# AUC = roc_auc_score(y_test, y_pred)
-# print('==========AUC======\n',AUC)
+#AUC
+AUC = roc_auc_score(y_test, y_pred)
+print('==========AUC======\n',AUC)
 
-# #Training Time
-# print('======total training time====')
-# print(total_training_time, ' seconds')
+#Training Time
+print('======total training time====')
+print(total_training_time, ' seconds')
 
-# #Testing Time
-# print('======total testing time====')
-# print(total_testing_time, ' seconds')
+#Testing Time
+print('======total testing time====')
+print(total_testing_time, ' seconds')

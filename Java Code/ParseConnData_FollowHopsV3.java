@@ -45,9 +45,13 @@ public class ParseConnData_FollowHopsV3 {
    public static final String WINDOWS_PATH  = "..";
    public static final String DATA_FOLDER   = "Data";
    public static final String OUTPUT_FOLDER = "Output";
-   public static final String FULL_DATASET  = "full_dataset.csv";
+   //public static final String FULL_DATASET  = "truncated_dataset_undersampled_benign.csv";
+   //public static final String TRUNC_DATASET = "truncated_dataset_undersampled_benign.csv";
+   //public static final String FULL_DATASET  = "truncated_dataset_oversampled_discovery.csv";
+   //public static final String TRUNC_DATASET = "truncated_dataset_oversampled_discovery.csv";
+   //public static final String FULL_DATASET  = "full_dataset.csv";
+   public static final String FULL_DATASET  = "truncated_dataset.csv";
    public static final String TRUNC_DATASET = "truncated_dataset.csv";
-   //public static final String TRUNC_DATASET = "truncated_dataset_discovery.csv";
 
    // Store/accumulate various attributes from the input data file.
    private static LinkedHashMap<String,String>  srcMap          = new LinkedHashMap<>();
@@ -140,9 +144,11 @@ public class ParseConnData_FollowHopsV3 {
       if(fullDataset) {
          file = new File(dataPath + FULL_DATASET);
          System.out.println("Using full data.");
+		 System.out.println("dataset name: " + FULL_DATASET);
       } else {
          file = new File(dataPath + TRUNC_DATASET);
          System.out.println("Using truncated data.");
+		 System.out.println("dataset name: " + TRUNC_DATASET);
       }
       
       System.out.println("==========================================================");      

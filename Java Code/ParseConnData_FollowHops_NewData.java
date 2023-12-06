@@ -47,8 +47,8 @@ public class ParseConnData_FollowHops_NewData {
    public static final String WINDOWS_PATH  = "..";
    public static final String DATA_FOLDER   = "Data";
    public static final String OUTPUT_FOLDER = "Output";
-   public static final String FULL_DATASET  = "CombinedNewData1.csv";
-   public static final String TRUNC_DATASET = "truncated_dataset.csv";
+   public static final String FULL_DATASET  = "CombinedNewData2.csv";
+   public static final String TRUNC_DATASET = "CombinedNewData2.csv";
 
    // Store/accumulate various attributes from the input data file.
    private static LinkedHashMap<String,String>  srcMap          = new LinkedHashMap<>();
