@@ -13,9 +13,9 @@ public class ParseConnData_Create_ANN_DataV3 {
    public static final String OUTPUT_FOLDER = "Output";
    public static final String INPUT_FILE    = "FinalGraph_V4.csv";
 
-   public static final String ONE_HOT_1     = "1,0,0";
-   public static final String ONE_HOT_2     = "0,1,0";
-   public static final String ONE_HOT_3     = "0,0,1";
+   public static final String ONE_HOT_1     = "1,0,0"; //none
+   public static final String ONE_HOT_2     = "0,1,0"; //recon
+   public static final String ONE_HOT_3     = "0,0,1"; //discovery
 
    private static LinkedHashMap<String,Integer> rootCountMap  = new LinkedHashMap<>();
    private static LinkedHashMap<String,Integer> portCountMinMap  = new LinkedHashMap<>();
