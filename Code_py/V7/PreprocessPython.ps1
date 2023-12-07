@@ -1,3 +1,7 @@
+param(
+    [string]$pythonFile
+)
+
 # Run a Python script to convert csv files to numpy arrays 
 python -c @"
 
@@ -14,4 +18,4 @@ np.save('y_V8.npy', y)
 #print(X)
 "@
 
-python Scikit-Learn-ANN-NewDataset-Binary.py
+python $pythonFile

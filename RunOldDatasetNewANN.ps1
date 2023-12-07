@@ -1,5 +1,6 @@
 #dataset type
 $datasetType = "old"
+$pythonFile = "Scikit-Learn-ANN.py"
 
 #Enter Java Code Folder
 cd 'Java Code'
@@ -11,7 +12,7 @@ cd ..
 #Enter Python Code Folder
 cd 'Code_py\V7'
 
-./PreprocessPythonScikitLearn
+./PreprocessPython $pythonFile
 
 #Exit folder
 cd ../..
