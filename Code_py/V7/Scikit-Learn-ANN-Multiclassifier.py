@@ -1,5 +1,5 @@
+import sys
 import numpy as np
-#import pandas as pd
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.layers import Dense
@@ -7,15 +7,20 @@ from tensorflow.keras.optimizers import Adam
 from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
 import time
 
+numOutputUnits = int(sys.argv[1])
+OldDatasetOutputNum = 3
+
+print('num units' ,numOutputUnits)
+
 X = np.load('x_V8.npy') # Data
 y = np.load('y_V8.npy') # One-hot
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.15, random_state = 0)
 
 ann = tf.keras.models.Sequential()
 ann.add(tf.keras.layers.Dense(units=5, activation='relu'))
 ann.add(tf.keras.layers.Dense(units=5, activation='relu'))
-ann.add(tf.keras.layers.Dense(units=3, activation='sigmoid'))
+ann.add(tf.keras.layers.Dense(units=numOutputUnits, activation='sigmoid'))
 
 custom_optimizer = Adam(learning_rate=0.05) 
 
@@ -57,18 +62,20 @@ print('======= recall ========\n', recall)
 precision = precision_score(y_test, y_pred_rounded, average='weighted', zero_division=1.0)
 print('=======precision=======\n', precision)
 
-#F-measure False Positive Rate
-f_measure = f1_score(y_test, y_pred_rounded, average='weighted')
-print('==========F measure======\n',f_measure)
+if(numOutputUnits == OldDatasetOutputNum):
+    #F-measure False Positive Rate
+    f_measure = f1_score(y_test, y_pred_rounded, average='weighted')
+    print('==========F measure======\n',f_measure)
 
-#AUC
-AUC = roc_auc_score(y_test, y_pred)
-print('==========AUC======\n',AUC)
+    #AUC
+    AUC = roc_auc_score(y_test, y_pred)
+    print('==========AUC======\n',AUC)
 
-#Training Time
-print('======total training time====')
-print(total_training_time, ' seconds')
+    #Training Time
+    print('======total training time====')
+    print(total_training_time, ' seconds')
 
-#Testing Time
-print('======total testing time====')
-print(total_testing_time, ' seconds')
+    #Testing Time
+    print('======total testing time====')
+    print(total_testing_time, ' seconds')
+

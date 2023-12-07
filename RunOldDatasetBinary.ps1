@@ -2,11 +2,13 @@ param(
     [string]$csv
 )
 
+$pythonFile = "Scikit-Learn-ANN-Binary.py"
+
 Write-Output "preprocessing $csv"
 
 #Enter Java Code Folder
 cd 'Java Code'
-./PreprocessJavaNewBinary $csv
+./PreprocessJavaBinary $csv old
 
 #Exit folder
 cd ..
@@ -14,7 +16,7 @@ cd ..
 #Enter Python Code Folder
 cd 'Code_py\V7'
 
-./PreprocessPythonSciKitLearnWithNewDataBinary
+./PreprocessPython $pythonFile
 
 #Exit folder
 cd ../..
