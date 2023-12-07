@@ -7,10 +7,10 @@ Write-Output "passed in $datasetNumber"
 # Define the file name 
 if($datasetNumber -eq 'old' ){
 	Write-Output "running old"
-	$HopsFileJava = "ParseConnData_FollowHopsV3_Binary.java"
-	$HopsFileClass = "ParseConnData_FollowHopsV3_Binary"
-	$ConnFileJava = "ParseConnData_Create_ANN_NewData_Binary.java"
-	$ConnFileClass = "ParseConnData_Create_ANN_NewData_Binary"
+	$HopsFileJava = "ParseConnData_FollowHopsV3.java"
+	$HopsFileClass = "ParseConnData_FollowHopsV3"
+	$ConnFileJava = "ParseConnData_Create_ANN_DataV3.java"
+	$ConnFileClass = "ParseConnData_Create_ANN_DataV3"
 }
 
 elseif($datasetNumber -eq 'new' ){
