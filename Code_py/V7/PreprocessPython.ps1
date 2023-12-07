@@ -1,5 +1,6 @@
 param(
-    [string]$pythonFile
+    [string]$pythonFile,
+	[int] $numOutputs
 )
 
 # Run a Python script to convert csv files to numpy arrays 
@@ -18,4 +19,4 @@ np.save('y_V8.npy', y)
 #print(X)
 "@
 
-python $pythonFile
+python $pythonFile $numOutputs
