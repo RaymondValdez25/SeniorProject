@@ -2,7 +2,7 @@ param(
     [string]$csv
 )
 
-$pythonFile = "Scikit-Learn-ANN-NewDataset-Binary.py"
+$pythonFile = "Scikit-Learn-ANN-Binary.py"
 
 
 Write-Output "preprocessing $csv"

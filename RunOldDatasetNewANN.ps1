@@ -1,6 +1,6 @@
 #dataset type
 $datasetType = "old"
-$pythonFile = "Scikit-Learn-ANN.py"
+$pythonFile = "Scikit-Learn-ANN-old.py"
 
 #Enter Java Code Folder
 cd 'Java Code'
