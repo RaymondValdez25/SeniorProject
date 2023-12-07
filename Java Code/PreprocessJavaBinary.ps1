@@ -1,5 +1,6 @@
 param(
-    [string]$datasetNumber
+    [string]$csv,
+	[string]$datasetNumber
 )
 
 Write-Output "passed in $datasetNumber"
@@ -15,10 +16,10 @@ if($datasetNumber -eq 'old' ){
 
 elseif($datasetNumber -eq 'new' ){
 	Write-Output "running new"
-	$HopsFileJava = "ParseConnData_FollowHops_NewData.java"
-	$HopsFileClass = "ParseConnData_FollowHops_NewData"
-	$ConnFileJava = "ParseConnData_Create_ANN_NewData.java"
-	$ConnFileClass = "ParseConnData_Create_ANN_NewData"
+	$HopsFileJava = "ParseConnData_FollowHops_NewData_Binary.java"
+	$HopsFileClass = "ParseConnData_FollowHops_NewData_Binary"
+	$ConnFileJava = "ParseConnData_Create_ANN_NewData_Binary.java"
+	$ConnFileClass = "ParseConnData_Create_ANN_NewData_Binary"
 }
 
 else{
@@ -29,7 +30,7 @@ else{
 javac $HopsFileJava
 
 # Run the Java program with the "windows" parameter
-java $HopsFileClass windows
+java $HopsFileClass windows $csv
 
 #Copy FinalGraph_V4.csv from Output into Data
 cp ../Output/FinalGraph_V4.csv ../Data/

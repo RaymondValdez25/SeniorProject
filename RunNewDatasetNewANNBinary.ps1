@@ -6,7 +6,7 @@ Write-Output "preprocessing $csv"
 
 #Enter Java Code Folder
 cd 'Java Code'
-./PreprocessJavaNewBinary $csv
+./PreprocessJavaBinary $csv new
 
 #Exit folder
 cd ..
