@@ -43,12 +43,8 @@ public class ParseConnData_FollowHopsV3 {
    // Update the following when running in a different environment.
    public static final String LINUX_PATH    = "/mnt/c/Class/";
    public static final String WINDOWS_PATH  = "..";
-   public static final String DATA_FOLDER   = "Data";
+   public static final String DATA_FOLDER   = "Data/FirstDataset";
    public static final String OUTPUT_FOLDER = "Output";
-   //public static final String FULL_DATASET  = "truncated_dataset_undersampled_benign.csv";
-   //public static final String TRUNC_DATASET = "truncated_dataset_undersampled_benign.csv";
-   //public static final String FULL_DATASET  = "truncated_dataset_oversampled_discovery.csv";
-   //public static final String TRUNC_DATASET = "truncated_dataset_oversampled_discovery.csv";
    //public static final String FULL_DATASET  = "full_dataset.csv";
    public static final String FULL_DATASET  = "truncated_dataset.csv";
    public static final String TRUNC_DATASET = "truncated_dataset.csv";

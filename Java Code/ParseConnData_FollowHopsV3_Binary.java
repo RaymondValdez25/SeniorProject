@@ -43,7 +43,7 @@ public class ParseConnData_FollowHopsV3_Binary {
    // Update the following when running in a different environment.
    public static final String LINUX_PATH    = "/mnt/c/Class/";
    public static final String WINDOWS_PATH  = "..";
-   public static final String DATA_FOLDER   = "Data";
+   public static final String DATA_FOLDER   = "Data/FirstDataset";
    public static final String OUTPUT_FOLDER = "Output";
    public static  String FULL_DATASET  = "full_dataset.csv";
    public static  String TRUNC_DATASET = "truncated_dataset.csv";
@@ -105,13 +105,15 @@ public class ParseConnData_FollowHopsV3_Binary {
             } else if (param.equalsIgnoreCase("windows")) {
                platformWindows = true;
                System.out.println("Platform = Windows");
-            } else if((param.equalsIgnoreCase("truncated_dataset_recon_and_none.csv")) ||
-					 (param.equalsIgnoreCase("truncated_dataset_discovery_and_none.csv"))){
-					  FULL_DATASET = param;
-					  TRUNC_DATASET = param;
-		    }
+            } 
+			// else if((param.equalsIgnoreCase("truncated_dataset_recon_and_none.csv")) ||
+					 // (param.equalsIgnoreCase("truncated_dataset_discovery_and_none.csv"))){
+					  
+		    // }
             else
-               tacticToFind = param;
+               //tacticToFind = param;
+				FULL_DATASET = param;
+				TRUNC_DATASET = param;
          }
       }
       
