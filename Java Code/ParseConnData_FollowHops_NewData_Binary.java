@@ -45,10 +45,10 @@ public class ParseConnData_FollowHops_NewData_Binary {
    // Update the following when running in a different environment.
    public static final String LINUX_PATH    = "/mnt/c/Class/";
    public static final String WINDOWS_PATH  = "..";
-   public static final String DATA_FOLDER   = "Data";
+   public static final String DATA_FOLDER   = "Data/SecondDataset";
    public static final String OUTPUT_FOLDER = "Output";
    public static String FULL_DATASET;
-   public static final String TRUNC_DATASET = "truncated_dataset.csv";
+   public static String TRUNC_DATASET;
 
    // Store/accumulate various attributes from the input data file.
    private static LinkedHashMap<String,String>  srcMap          = new LinkedHashMap<>();
@@ -107,20 +107,22 @@ public class ParseConnData_FollowHops_NewData_Binary {
             } else if (param.equalsIgnoreCase("windows")) {
                platformWindows = true;
                System.out.println("Platform = Windows");
-            } else if(param.equalsIgnoreCase("Reconnaissance.csv") || 
-					  param.equalsIgnoreCase("Discovery.csv") ||
-					  param.equalsIgnoreCase("PrivilegeEscalation.csv") ||
-					  param.equalsIgnoreCase("PrivilegeEscalationTrunc.csv") ||
-					  param.equalsIgnoreCase("ResourceDevelopment.csv") ||
-					  param.equalsIgnoreCase("ResourceDevelopmentTruncated.csv") ||
-					  param.equalsIgnoreCase("ResourceDevelopmentTruncated1.csv") ||
-					  param.equalsIgnoreCase("ResourceDevelopmentTruncated2.csv") ||
-					  param.equalsIgnoreCase("ResourceDevelopment3000None.csv") ||
-					  param.equalsIgnoreCase("DefenseEvasion.csv")){
-					  FULL_DATASET = param;
-			}
+            }// else if(param.equalsIgnoreCase("Reconnaissance.csv") || 
+					  // param.equalsIgnoreCase("Discovery.csv") ||
+					  // param.equalsIgnoreCase("PrivilegeEscalation.csv") ||
+					  // param.equalsIgnoreCase("PrivilegeEscalationTrunc.csv") ||
+					  // param.equalsIgnoreCase("ResourceDevelopment.csv") ||
+					  // param.equalsIgnoreCase("ResourceDevelopmentTruncated.csv") ||
+					  // param.equalsIgnoreCase("ResourceDevelopmentTruncated1.csv") ||
+					  // param.equalsIgnoreCase("ResourceDevelopmentTruncated2.csv") ||
+					  // param.equalsIgnoreCase("ResourceDevelopment3000None.csv") ||
+					  // param.equalsIgnoreCase("DefenseEvasion.csv")){
+					  
+			// }
             else
-               tacticToFind = param;
+               //tacticToFind = param;
+				FULL_DATASET = param;
+				TRUNC_DATASET = param;
          }
       }
       
