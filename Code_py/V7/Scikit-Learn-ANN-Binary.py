@@ -6,6 +6,7 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
 from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
 import time
+from sklearn.metrics import confusion_matrix
 
 X = np.load('x_V8.npy') # Data
 y = np.load('y_V8.npy') # One-hot
@@ -58,7 +59,7 @@ f_measure = f1_score(y_test, y_pred_binary)
 print('==========F measure======\n',f_measure)
 
 #AUC
-AUC = roc_auc_score(y_test, y_pred)
+AUC = roc_auc_score(y_test, y_pred_binary)
 print('==========AUC======\n',AUC)
 
 #Training Time
@@ -68,3 +69,18 @@ print(total_training_time, ' seconds')
 #Testing Time
 print('======total testing time====')
 print(total_testing_time, ' seconds')
+
+#confusion matrix
+result = confusion_matrix(y_test, y_pred_binary).ravel()
+
+#matrix outputs
+print('\n Confusion matrix results \n')
+trueNegative = result[0]
+falsePositive = result[1]
+falseNegative = result[2]
+truePositive = result[3]
+
+print('true negative:', trueNegative)
+print('false positive:', falsePositive)
+print('false negative:', falseNegative)
+print('true positive:', truePositive)

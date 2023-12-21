@@ -13,8 +13,8 @@ public class ParseConnData_Create_ANN_NewData_Binary {
    public static final String OUTPUT_FOLDER = "Output";
    public static final String INPUT_FILE    = "FinalGraph_V4.csv";
 
-   public static final String ONE_HOT_1     = "1"; //none
-   public static final String ONE_HOT_2     = "0";
+   public static final String ONE_HOT_1     = "0"; //none
+   public static final String ONE_HOT_2     = "1";
 
 
    private static LinkedHashMap<String,Integer> rootCountMap  = new LinkedHashMap<>();
