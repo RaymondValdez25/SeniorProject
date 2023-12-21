@@ -11,7 +11,7 @@ from sklearn.metrics import confusion_matrix
 X = np.load('x_V8.npy') # Data
 y = np.load('y_V8.npy') # One-hot
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.99, random_state = 0, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.15, random_state = 0, stratify=y)
 
 ann = tf.keras.models.Sequential()
 ann.add(tf.keras.layers.Dense(units=5, activation='relu'))
