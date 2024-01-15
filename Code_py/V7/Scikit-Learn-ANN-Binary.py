@@ -10,8 +10,9 @@ from sklearn.metrics import confusion_matrix
 
 X = np.load('x_V8.npy') # Data
 y = np.load('y_V8.npy') # One-hot
+testDatasize = 0.10
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.15, random_state = 0, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = testDatasize, random_state = 0, stratify=y)
 
 ann = tf.keras.models.Sequential()
 ann.add(tf.keras.layers.Dense(units=5, activation='relu'))
@@ -74,7 +75,8 @@ print(total_testing_time, ' seconds')
 result = confusion_matrix(y_test, y_pred_binary).ravel()
 
 #matrix outputs
-print('\n Confusion matrix results \n')
+print('\n Confusion matrix results with test datasize:', testDatasize * 100, '%')
+print('\n')
 trueNegative = result[0]
 falsePositive = result[1]
 falseNegative = result[2]
