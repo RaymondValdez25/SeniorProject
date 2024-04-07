@@ -3,9 +3,9 @@ Before running the program you must download the data from these locations:
 - Second Dataset: https://drive.google.com/drive/u/0/folders/1ZvV2aThxfFhrJZzZhaLsqseQotHAH7Pr
 
 These need to be inserted into your folder structure under the Data folder
-  Data
-    | -- FirstDataset
-    | -- SecondDataset
+  - Data
+    - | -- FirstDataset
+    - | -- SecondDataset
 
 Any csv file with (2UCT-UTB) as a suffix is a file that is oversampled
 
