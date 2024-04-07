@@ -21,5 +21,3 @@ You can run the program by running any of the following Powershell scripts:
     Example: ./RunNewDatasetBinary Reconnaissance_Binary.csv
 - RunOldDatasetBinary script also requires a a csv file name passed in as a parameter from the SecondDataset folder. Any file with binary in its title will work.
     Example: ./RunOldDatasetBinary Discovery_Binary_2UCT-UTB.csv
-
-Test
